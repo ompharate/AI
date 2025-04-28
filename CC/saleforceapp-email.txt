@@ -1,0 +1,16 @@
+public class stud {
+    public static void sendEmail() {
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        
+        String[] toAddress = new String[] {'ompharate31@gmail.com'};
+           
+        mail.setToAddresses(toAddress);
+        mail.setSubject('Hello from Salesforce');
+        mail.setPlainTextBody('This is a test email sent from an Apex class.');
+        
+        Messaging.sendEmail(new Messaging.SingleEmailMessage[] {mail});
+    }
+}
+
+
+stud.sendEmail();

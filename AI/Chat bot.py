@@ -1,67 +1,43 @@
-def greet(bot_name, birth_year):
-    print("Hello! My name is {0}.".format(bot_name))
-    print("I was created in {0}.".format(birth_year))
-
-
-def remind_name():
-    print('Please, remind me your name.')
-    name = input()
-    print("What a great name you have, {0}!".format(name))
-
-
-def guess_age():
-    print('Let me guess your age.')
-    print('Enter remainders of dividing your age by 3, 5 and 7.')
-
-    rem3 = int(input())
-    rem5 = int(input())
-    rem7 = int(input())
-    age = (rem3 * 70 + rem5 * 21 + rem7 * 15) % 105
-
-    print("Your age is {0}; that's a good time to start programming!".format(age))
-
-
-def count():
-    print('Now I will prove to you that I can count to any number you want.')
-    num = int(input())
-
-    counter = 0
-    while counter <= num:
-        print("{0} !".format(counter))
-        counter += 1
-
-
-def test():
-    print("Let's test your programming knowledge.")
-    print("Why do we use methods?")
-    print("1. To repeat a statement multiple times.")
-    print("2. To decompose a program into several small subroutines.")
-    print("3. To determine the execution time of a program.")
-    print("4. To interrupt the execution of a program.")
-
-    answer = 2
-    guess = int(input())
-    while guess != answer:
-        print("Please, try again.")
-        guess = int(input())
-
-    print('Completed, have a nice day!')
-    print('.................................')
-    print('.................................')
-    print('.................................')
-
-
-def end():
-    print('Congratulations, have a nice day!')
-    print('.................................')
-    print('.................................')
-    print('.................................')
-    input()
-
+import time
+ 
+menu = {
+     "pepperoni": 799,
+     "margherita": 699,
+     "veggie": 749,
+     "meat lovers": 999,
+     "hawaiian": 899
+ }
+ 
+payment_methods = ["cash on delivery", "online payment", "upi", "card payment"]
+ 
+def order_pizza():
+ 
+     print("\n\nWelcome to Yogesh Pizzas!")
+     print("Here's our menu:")
+     for item in menu:
+         print(f"{item.title()} - Rs.{menu[item]}")
+     print("\n\n")
     
-greet('Prakash','2024')  # change it as you need
-remind_name()
-guess_age()
-count()
-test()
-end()
+     pizza_choice = input("What would you like to order? ").lower()
+ 
+   
+     while pizza_choice not in menu:
+         pizza_choice = input("Sorry, we don't have that on our menu. Please choose something else: ").lower()
+ 
+     payment_choice = input("How would you like to pay? ").lower()
+ 
+     while payment_choice not in payment_methods:
+         payment_choice = input("Sorry, we don't accept that payment method. Please choose something else: ").lower()
+ 
+     total_cost = menu[pizza_choice]
+ 
+  
+     print("Generating receipt...")
+     time.sleep(2)
+     print("\n\n")
+     print(f"You ordered a {pizza_choice.title()} pizza from Yogesh Pizzas for Rs.{menu[pizza_choice]}.")
+     print(f"Your total cost is Rs.{total_cost}.")
+     print(f"Payment method: {payment_choice.title()}.")
+     print("Thank you for your order!")
+ 
+order_pizza()
